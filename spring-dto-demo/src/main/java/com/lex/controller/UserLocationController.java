@@ -37,7 +37,7 @@ public class UserLocationController {
     @PostMapping("addUser-Location")
     public UserLocationDTO addUserLocation(@RequestBody UserLocationDTO userLocationDTO){
         userService.insertUser(userService.convertDtoToUser(userLocationDTO));
-        locationService.insertLocation(locationService.convertDtoToLocation(userLocationDTO));
+//        locationService.insertLocation(locationService.convertDtoToLocation(userLocationDTO));
         return userLocationDTO;
     }
 }

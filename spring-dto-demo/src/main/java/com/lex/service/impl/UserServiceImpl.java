@@ -1,10 +1,12 @@
-package com.lex.service;
+package com.lex.service.impl;
 
 import com.lex.dto.UserLocationDTO;
 import com.lex.entity.Location;
 import com.lex.entity.User;
 import com.lex.repository.LocationRepository;
 import com.lex.repository.UserRepository;
+import com.lex.service.UserService;
+
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MatchingStrategy;

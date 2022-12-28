@@ -13,6 +13,7 @@ import java.util.List;
  * @date : 20/11/2022 9:45 pm
  */
 @RestController
+@RequestMapping("/UserLocationDto")
 public class UserLocationController {
 
     private final UserService userService;

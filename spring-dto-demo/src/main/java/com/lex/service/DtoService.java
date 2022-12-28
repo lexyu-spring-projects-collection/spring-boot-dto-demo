@@ -1,7 +1,11 @@
 package com.lex.service;
 
+import java.util.List;
+
 import com.lex.dto.LocationDTO;
 import com.lex.dto.UserDTO;
+import com.lex.entity.Location;
+import com.lex.entity.User;
 
 /**
  * @author Lex_Yu
@@ -9,12 +13,12 @@ import com.lex.dto.UserDTO;
  */
 public interface DtoService {
 	
-	UserDTO getUserDTO();
+	List<UserDTO> getUserDTO();
 	
-	UserDTO convertUserToDTO();
+	UserDTO convertUserToDTO(User user);
 	
-	LocationDTO getLocationDTO();
+	List<LocationDTO> getLocationDTO();
 	
-	LocationDTO convertLocationToDTO();
+	LocationDTO convertLocationToDTO(Location location);
 
 }

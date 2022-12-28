@@ -3,27 +3,28 @@ package com.lex.mapper;
 import com.lex.dto.ProductDTO;
 import com.lex.entity.Product;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
  * @author : LEX_YU
  * @date : 21/11/2022 9:59 pm
  */
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ProductMapper {
 
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
-
-    ProductDTO toProductDTO(Product product);
+    @Mapping(source = "name", target = "name")
+    @Mapping(source = "description", target = "description")
+    @Mapping(source = "price", target = "price")
+    
+//    ProductDTO toProductDTO(Product product);
 
     List<ProductDTO> toProductDTOs(List<Product> products);
 
-    Product toProduct(ProductDTO productDTO);
+//    Product toProduct(ProductDTO productDTO);
 
-    List<Product> toProducts(List<ProductDTO> productDTOs);
+//    List<Product> toProducts(List<ProductDTO> productDTOs);
 
 }

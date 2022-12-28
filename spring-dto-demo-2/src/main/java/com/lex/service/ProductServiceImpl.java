@@ -1,6 +1,8 @@
 package com.lex.service;
 
+import com.lex.dto.ProductDTO;
 import com.lex.entity.Product;
+import com.lex.mapper.ProductMapper;
 import com.lex.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,29 +18,31 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService{
 
     private final ProductRepository repository;
-
+    private final ProductMapper mapper;
+    
     @Autowired
-    public ProductServiceImpl(ProductRepository repository) {
-        this.repository = repository;
+    public ProductServiceImpl(ProductRepository repository, ProductMapper mapper) {
+		this.repository = repository;
+		this.mapper = mapper;
+	}
+
+	@Override
+    public List<ProductDTO> findAll() {
+        return mapper.toProductDTOs(repository.findAll());
     }
 
-    @Override
-    public List<Product> findAll() {
-        return repository.findAll();
-    }
-
-    @Override
-    public Optional<Product> findById(Long id) {
-        return repository.findById(id);
-    }
-
-    @Override
-    public Product save(Product product) {
-        return repository.save(product);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-
-    }
+//    @Override
+//    public Optional<Product> findById(Long id) {
+//        return repository.findById(id);
+//    }
+//
+//    @Override
+//    public Product save(Product product) {
+//        return repository.save(product);
+//    }
+//
+//    @Override
+//    public void deleteById(Long id) {
+//
+//    }
 }

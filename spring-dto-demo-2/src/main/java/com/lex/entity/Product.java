@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,8 +30,10 @@ public class Product {
     private String name;
     private String description;
     private BigDecimal price;
+    @JsonFormat(pattern = "yyyy-HH-dd HH:mm:ss")
     @Column(name = "createdAt")
     private LocalDateTime createdAt;
+    @JsonFormat(pattern = "yyyy-HH-dd HH:mm:ss")
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
 
